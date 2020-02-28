@@ -15,5 +15,9 @@ public class TresEnRaya {
 		jugador1 = new Jugador("jugador1");
 		jugador2 = new Jugador("jugador2");
 	}
+	
+	public void jugar() {
+		
+	}
 
 }
