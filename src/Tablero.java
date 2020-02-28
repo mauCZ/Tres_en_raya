@@ -13,7 +13,7 @@ public class Tablero {
 		String resultado = "   0 1 2 \n   _ _ _ \n";
 		
 		for(int i =0;i<3;i++) {
-			resultado += (i+1);
+			resultado += (i);
 			resultado += " |";
 			for(int j =0;j<3;j++) {
 				resultado += grilla[i][j];
@@ -51,13 +51,13 @@ public class Tablero {
 	 * Verificamos si una columna o una fila ya estan llenas con fichas del mismo tipo, si es asi, pues el juego termino.
 	 */
 	private boolean columnaLlena(int col) {
-		if(grilla[0][col] != 'n') {
+		if(grilla[0][col] != ' ') {
 			return grilla[0][col] == grilla[1][col] && grilla[1][col] == grilla[2][col];
 		}
 		return false;
 	}
 	private boolean filaLlena(int fila) {
-		if(grilla[fila][0] != 'n') {
+		if(grilla[fila][0] != ' ') {
 			return grilla[fila][0] == grilla[fila][1] && grilla[fila][1] == grilla[fila][2];
 		}
 		return false;
