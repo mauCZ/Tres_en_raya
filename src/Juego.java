@@ -4,10 +4,9 @@ public class Juego {
 
 	public static void main(String[] args) throws IOException {
 
-		/*TresEnRaya t = new TresEnRaya();
-		t.jugar();*/
+		TresEnRaya t = new TresEnRaya("Mauricio","Vanessa");
+		//t.jugar();
 		
-		GUI gui = new GUI("3 en raya");
 		
 	}
 

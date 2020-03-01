@@ -6,24 +6,32 @@ public class TresEnRaya {
 	Scanner inp = new Scanner(System.in);
 	
 	private HashMap<Integer,Jugador> mapita;
-	private Tablero tablero;
+	//private Tablero tablero;
 	private Jugador jugador1;
 	private Jugador jugador2;
+	private GUI interfaz;
 	
 	public TresEnRaya(String nombreJug1, String nombreJug2) {
-		tablero = new Tablero();
+		//tablero = new Tablero();
 		jugador1 = new Jugador(nombreJug1);
 		jugador2 = new Jugador(nombreJug2);
 		mapita = new HashMap<Integer,Jugador>();
+		interfaz = new GUI("3 EN RAYA");
 	}
 	public TresEnRaya() {
-		tablero = new Tablero();
+		//tablero = new Tablero();
 		jugador1 = new Jugador("jugador1");
 		jugador2 = new Jugador("jugador2");
 		mapita = new HashMap<Integer,Jugador>();
+		interfaz = new GUI("3 EN RAYA");
 	}
 	
-	public void jugar() throws IOException {
+	
+	public void accion() {
+		System.out.println("boton presionado");
+	}
+	
+	/*public void jugar() throws IOException {
 		int turno = 0;
 		System.out.println("Bienvenido");
 		System.out.println("Nombre jugador 1: ");
@@ -47,12 +55,10 @@ public class TresEnRaya {
 				x = inp.nextInt();
 				y = inp.nextInt();
 			}
-			
 			System.out.println(tablero);
 			turno = 1-turno;
 		}
 		turno = 1 - turno;
 		System.out.println("GANADOR: "+mapita.get(turno).getNombre());
-	}
-
+	}*/
 }
