@@ -13,12 +13,12 @@ public class GUI extends JFrame{
 	public GUI(String nombre) {
 		super(nombre);
 		
+		
 		tablero = new TableroGUI();
-
 		add(tablero,BorderLayout.CENTER);
+		
+		
 		configurarFrame();
-		
-		
 	}
 	private void configurarFrame() {
 		
