@@ -1,10 +1,11 @@
 
-
-public class Tablero {
+//Esta clase es el Modelo de MVC de nuestra aplicacion 3 en raya, el modelo guarda el estado
+//del juego y tambien realizar la logica o las operaciones sobre el tablero de tic-tac-toe
+public class Modelo {
 	
 	char grilla[][];
 	
-	public Tablero() {
+	public Modelo() {
 		grilla = new char[3][3];
 		iniciarGrilla();
 	}
