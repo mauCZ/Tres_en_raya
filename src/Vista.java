@@ -77,7 +77,14 @@ public class Vista extends JFrame{
 				botones[i][j].setEnabled(false);
 			}
 		}
-		actGanador(turnoGanador);
+		//empate
+		if(turnoGanador == 0) {
+			actEmpate();
+		}
+		else actGanador(turnoGanador);
+	}
+	private void actEmpate() {
+		estado.setText("EMPATE!!");
 	}
 	private void actGanador(int turno) {
 		char t = turnoChar(turno);

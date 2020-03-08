@@ -12,7 +12,7 @@ public class Juego {
 		TimeUnit.SECONDS.sleep(2);
 		vista.jugarPos(2, 0, 2);
 		TimeUnit.SECONDS.sleep(2);
-		vista.terminoJuego(1);
+		vista.terminoJuego(0);
 		TimeUnit.SECONDS.sleep(2);
 		vista.reiniciarJuego();
 	}
