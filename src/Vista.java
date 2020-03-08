@@ -56,9 +56,11 @@ public class Vista extends JFrame{
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	public void jugarPos(int x,int y,char turno) {
-		botones[x][y].setText(Character.toString(turno));
+	public void jugarPos(int x,int y,int turno) {
+		char t = turnoChar(turno);
+		botones[x][y].setText(Character.toString(t));
 		botones[x][y].setEnabled(false);
+		actEstado(turno);
 	}
 	public void reiniciarJuego() {
 		for(int i =0;i<3;i++) {
@@ -67,6 +69,26 @@ public class Vista extends JFrame{
 				botones[i][j].setText("");
 			}
 		}
+		actEstado(1);
 	}
-	
+	public void terminoJuego(int turnoGanador) {
+		for(int i=0;i<3;i++) {
+			for(int j =0;j<3;j++) {
+				botones[i][j].setEnabled(false);
+			}
+		}
+		actGanador(turnoGanador);
+	}
+	private void actGanador(int turno) {
+		char t = turnoChar(turno);
+		estado.setText("GANADOR: JUGADOR "+turno+"("+t+")");
+	}
+	private void actEstado(int turno) {
+		char t = turnoChar(turno);
+		estado.setText("Turno jugador "+turno+"("+t+")");
+	}
+	private char turnoChar(int turno) {
+		if(turno == 1) return 'X';
+		return 'O';
+	}
 }

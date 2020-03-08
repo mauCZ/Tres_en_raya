@@ -8,9 +8,11 @@ public class Juego {
 		
 		Vista vista = new Vista();
 		TimeUnit.SECONDS.sleep(2);
-		vista.jugarPos(0, 0, 'X');
+		vista.jugarPos(0, 0, 1);
 		TimeUnit.SECONDS.sleep(2);
-		vista.jugarPos(2, 0, 'O');
+		vista.jugarPos(2, 0, 2);
+		TimeUnit.SECONDS.sleep(2);
+		vista.terminoJuego(1);
 		TimeUnit.SECONDS.sleep(2);
 		vista.reiniciarJuego();
 	}
