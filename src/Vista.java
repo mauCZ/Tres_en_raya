@@ -51,13 +51,14 @@ public class Vista extends JFrame{
 	
 	}
 	private void iniFrame() {
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500,600);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	
+	public void jugarPos(int x,int y,char turno) {
+		botones[x][y].setText(Character.toString(turno));
+		botones[x][y].setEnabled(false);
+	}
 	
 }
