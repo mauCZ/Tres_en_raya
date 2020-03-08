@@ -1,31 +1,63 @@
-import javax.swing.JFrame;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
+import java.awt.event.*;
+import javax.swing.event.*;
+import java.awt.*;
+import javax.swing.*;
 //Esta clase es la vista del modelo MVC de nuestro juego de 3 en raya :v 
 public class Vista extends JFrame{
-	private JLabel turnoEtiq;
-	private JLabel turno;
-	private JPanel panelTurno;
-	private JButton panelBotones[][];
+	JPanel panPrinc;
+	JPanel panEstado;
+	JPanel panBoton;
+	JButton botones[][];
+	JButton reiniciar;
+	JLabel estado;
+	JPanel panReini;
 	
 	public Vista() {
+		iniComponents();
+		iniPanBotones();
 		
-		
-		configurarFrame();
+		iniFrame();
 	}
-	private void configurarFrame() {
+	private void iniPanBotones() {
+		for(int i =0;i<3;i++) {
+			for(int j =0;j<3;j++) {
+				botones[i][j] = new JButton(" ");
+				panBoton.add(botones[i][j]);
+			}
+		}
+	}
+	private void iniComponents() {
+		panPrinc = new JPanel(new BorderLayout());
+		panEstado = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		panBoton = new JPanel(new GridLayout(3,3,10,10));
+		panReini = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		botones = new JButton[3][3];
+		reiniciar = new JButton("Reiniciar");
+		estado = new JLabel("Turno jugador 1");
+		
+		getContentPane().add(panPrinc);
+		panPrinc.add(panEstado,BorderLayout.NORTH);
+		panPrinc.add(panBoton,BorderLayout.CENTER);
+		panPrinc.add(panReini,BorderLayout.SOUTH);
+		
+		//panEstado.setBackground(Color.green);
+		estado.setOpaque(true);
+		estado.setHorizontalAlignment(SwingConstants.CENTER);
+		estado.setVerticalAlignment(SwingConstants.CENTER);
+		estado.setPreferredSize(new Dimension(200,50));
+		reiniciar.setPreferredSize(new Dimension(100,50));
+		panEstado.add(estado);
+		panReini.add(reiniciar);
+	
+	}
+	private void iniFrame() {
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(400,400,600,600);
+		setSize(500,600);
 		setLocationRelativeTo(null);
-		
 		setVisible(true);
 	}
+	
+	
 }
