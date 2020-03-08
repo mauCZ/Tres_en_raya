@@ -60,5 +60,13 @@ public class Vista extends JFrame{
 		botones[x][y].setText(Character.toString(turno));
 		botones[x][y].setEnabled(false);
 	}
+	public void reiniciarJuego() {
+		for(int i =0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				botones[i][j].setEnabled(true);
+				botones[i][j].setText("");
+			}
+		}
+	}
 	
 }
