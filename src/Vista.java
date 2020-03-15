@@ -22,7 +22,16 @@ public class Vista extends JFrame{
 		for(int i =0;i<3;i++) {
 			for(int j =0;j<3;j++) {
 				botones[i][j] = new JButton(" ");
+				botones[i][j].setFont(new Font("Arial",Font.BOLD, 140));
 				panBoton.add(botones[i][j]);
+			}
+		}
+	}
+	public void addActionListeners(ActionListener al) {
+		reiniciar.addActionListener(al);
+		for(int i =0;i<3;i++) {
+			for(int j =0;j<3;j++) {
+				botones[i][j].addActionListener(al);
 			}
 		}
 	}
@@ -78,24 +87,45 @@ public class Vista extends JFrame{
 			}
 		}
 		//empate
+		
 		if(turnoGanador == 0) {
 			actEmpate();
 		}
 		else actGanador(turnoGanador);
 	}
+	public boolean pressReiniciar(JButton boton) {
+		return reiniciar == boton;
+	}
+	public Par botonPresionado(JButton boton) {
+		for(int i =0;i<3;i++)
+			for(int j =0;j<3;j++)
+				if(botones[i][j] == boton) return new Par(i,j);
+		return new Par(-1,-1);
+	}
 	private void actEmpate() {
 		estado.setText("EMPATE!!");
 	}
 	private void actGanador(int turno) {
-		char t = turnoChar(turno);
+		char t;
+		if(turno == 2) t= 'X';
+		else t = 'O';
 		estado.setText("GANADOR: JUGADOR "+turno+"("+t+")");
 	}
 	private void actEstado(int turno) {
-		char t = turnoChar(turno);
+		char t;
+		if(turno == 2) t= 'X';
+		else t = 'O';
 		estado.setText("Turno jugador "+turno+"("+t+")");
 	}
 	private char turnoChar(int turno) {
 		if(turno == 1) return 'X';
 		return 'O';
+	}
+}
+class Par{
+	int x,y;
+	Par(int x,int y){
+		this.x = x;
+		this.y = y;
 	}
 }
