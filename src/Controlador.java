@@ -30,7 +30,6 @@ public class Controlador {
 			if(vista.pressReiniciar(botonPressed)) {
 				modelo.reiniciarJuego();
 				vista.reiniciarJuego();
-				System.out.println("reiniciar");
 			}
 			else {
 				//jugamos una posicion
@@ -42,11 +41,13 @@ public class Controlador {
 				
 				//verificamos si el juego ha terminado en victoria o empate
 				if(modelo.juegoTerminado()) {
-					
 					vista.terminoJuego(modelo.getTurno());
+					vista.pintarAreaGanada(modelo.lineaGanadora(), modelo.getTurno());
+					
 				}
 				else if(modelo.juegoEmpatado()) {
 					vista.terminoJuego(0);
+					vista.pintarAreaGanada(modelo.lineaGanadora(), 0);
 				}
 			}
 		}

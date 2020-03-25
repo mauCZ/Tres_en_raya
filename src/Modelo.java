@@ -13,6 +13,7 @@ public class Modelo {
 		iniciarJuego();
 	}
 	public void reiniciarJuego() {
+		linea.clear();
 		iniciarJuego();
 	}
 	private void iniciarJuego() {
@@ -36,10 +37,6 @@ public class Modelo {
 				for(j =0;j<3;j++) linea.add(new Par(i,j));
 				return true;
 			}
-			else if(contX == 3) {
-				for(j =0;j<3;j++) linea.add(new Par(i,j));
-				return true;
-			}
 		}
 		for(j =0;j<3;j++) {
 			contO =0; contX = 0;
@@ -51,11 +48,8 @@ public class Modelo {
 				for(i =0;i<3;i++) linea.add(new Par(i,j));
 				return true;
 			}
-			else if(contX == 3) {
-				for(i =0;i<3;i++) linea.add(new Par(i,j));
-				return true;
-			}
 		}
+		
 		contO = 0; contX = 0;
 		for(i = 0;i < 3;i++) {
 			if(grilla[i][i] == 'X') contX++;
@@ -65,6 +59,7 @@ public class Modelo {
 			for(i =0;i<3;i++) linea.add(new Par(i,i));
 			return true;
 		}
+		
 		contO = 0; contX =0;
 		j = 2;
 		for(i =0;i<3;i++) {

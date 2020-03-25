@@ -2,6 +2,7 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.awt.*;
 import javax.swing.*;
+import java.util.ArrayList;
 //Esta clase es la vista del modelo MVC de nuestro juego de 3 en raya :v 
 public class Vista extends JFrame{
 	JPanel panPrinc;
@@ -23,6 +24,7 @@ public class Vista extends JFrame{
 			for(int j =0;j<3;j++) {
 				botones[i][j] = new JButton(" ");
 				botones[i][j].setFont(new Font("Arial",Font.BOLD, 140));
+				botones[i][j].setBackground(new Color(230,218,218));
 				panBoton.add(botones[i][j]);
 			}
 		}
@@ -76,6 +78,7 @@ public class Vista extends JFrame{
 			for(int j=0;j<3;j++) {
 				botones[i][j].setEnabled(true);
 				botones[i][j].setText("");
+				botones[i][j].setBackground(new Color(230,218,218));
 			}
 		}
 		actEstado(1);
@@ -87,11 +90,33 @@ public class Vista extends JFrame{
 			}
 		}
 		//empate
-		
 		if(turnoGanador == 0) {
 			actEmpate();
 		}
 		else actGanador(turnoGanador);
+	}
+	public void pintarAreaGanada(ArrayList<Par> linea,int turno) {
+		//gana O
+		if(turno == 1) {
+			System.out.println(linea.size());
+			for(Par p : linea) {
+				botones[p.x][p.y].setBackground(new Color(93,240,132));
+			}
+		}//gana X
+		else if(turno == 2) {
+			System.out.println(linea.size());
+			for(Par p : linea) {
+				botones[p.x][p.y].setBackground(new Color(250,97,97));
+			}
+		}//empate
+		else {
+			System.out.println(linea.size());
+			for(int i =0;i<3;i++) {
+				for(int j =0;j<3;j++) {
+					botones[i][j].setBackground(new Color(84,73,73));
+				}
+			}
+		}
 	}
 	public boolean pressReiniciar(JButton boton) {
 		return reiniciar == boton;
